@@ -1,0 +1,29 @@
+{% extends "admin/fields.njk" %}
+
+{% block ingredients %}
+    <div id="ingredients">Ingredientes
+        {% for ingredient in recipes.ingredients %}
+            <div class="ingredient">
+                    <input 
+                        type="text"
+                        name="recipe_ingredient[]"
+                        value="{{ ingredient }}"
+                    />
+            </div>
+        {% endfor %}
+    </div>
+{% endblock %}
+
+{% block preparation %}
+    <div id="preparation-itens">Modo de preparo
+        {% for prepararion_item in recipes.preparation %}
+            <div class="preparation">
+                <input 
+                    type="text"
+                    name="recipe_preparation"
+                    value="{{ prepararion_item }}"
+                />
+            </div>
+        {% endfor %}
+    </div>
+{% endblock %}

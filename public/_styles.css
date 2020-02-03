@@ -1,0 +1,200 @@
+@import "https://fonts.googleapis.com/css?family=Roboto:400,700&display=swap";
+
+:root {
+    --color-author: #777777;
+    --color-footer: #EEEEEE;
+    --color-esconder: #999999;
+}
+
+* {
+    margin: 0;
+    border: 0;
+    padding: 0;
+}
+
+body {
+    color: #111111;
+    font-family: 'Roboto', sans-serif;
+}
+
+.container {
+    max-width: 940px;
+    position: relative;
+    top: 0;
+    margin: 0 auto;
+}
+
+.header {
+    background: url(assets/logo.png) no-repeat 16.5% 50%;
+    padding: 32px;
+    background-color: #111111;
+    text-align: center;
+    margin-bottom: 4.5%;
+}
+
+.menu {
+    font-size: 16px;
+    text-indent: 15.2%;
+}
+
+.index {
+    position: absolute;
+    left: 0;
+    text-decoration: red;
+    width: 50px;
+    height: 50px;
+}
+
+.menu a {
+    text-decoration: none;
+    padding: 0 2.1%;
+}
+
+.best-menu {
+    background: #FBDFDB;
+    border-radius: 30px;
+    width: 100%;
+    height: 366px;
+    position: relative;
+}
+
+.best-menu h1 {
+    font-size: 32px;
+    line-height: 42px;
+    position: absolute;
+    margin-top: 10.6%;
+    margin-left: 4.3%;
+    margin-bottom: 0.9%;
+}
+
+.best-menu p {
+    font-size: 18px;
+    line-height: 28px;
+    color: #000000;
+    opacity: 0.7;
+    max-width: 316px;
+    position: absolute;
+    margin-top: 15%;
+    margin-left: 4.3%;
+}
+
+.best-menu img {
+    position: absolute;
+    bottom: 0;
+    right: 7.1%;
+}
+
+.most-accessed-title {
+    font-size: 24px;
+    line-height: 34px;
+    margin-top: 4.5%;
+    margin-bottom: 1.8%;
+}
+
+/* === CARDS === */
+
+h1.recipes-title {
+    font-size: 24px;
+    margin-bottom: 2.7%;
+}
+
+.card-recipe {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+.card-detail{
+    margin-right: 1.4%;
+}
+
+.card-image img{
+    width: 172px;
+    height: 80px;
+    border-radius: 8.57px;
+}
+
+.card{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+
+footer {
+    background-color: var(--color-footer);
+    height: 62px;
+    margin-top: 3%;
+}
+
+footer p {
+    font-size: 14px;
+    line-height: 24px;
+    color: #999999;
+    text-align: center;
+    padding: 1.5%;
+}
+
+
+/* === DETAIL CARDS === */
+
+.card-detail-head {
+    margin-bottom: 50px;
+}
+
+.card__image-container-detail img{
+    border-radius: 15px;
+    margin-bottom: 50px;
+}
+
+.card-detail-content .ingredients, .preparation, .information {
+    margin-bottom: 3.1%;
+}
+
+.card-detail-content ul, p {
+    font-size: 18px;
+    line-height: 28px;
+    color: #444444;
+    margin-top: 1.6%;
+}
+
+.card__title-detail h1 {
+    font-size: 36px;
+    line-height: 46px;
+    text-align: center;
+    font-weight: bold;
+}
+
+.card__author-detail h2 {
+    font-size: 20px;
+    line-height: 30px;
+    text-align: center;
+    font-weight: unset;
+    color: var(--color-author)
+}
+
+.card-detail-content h3 {
+    font-size: 24px;
+    line-height: 34px;
+    font-weight: bold;
+    margin-right: 0.6%;
+    margin-bottom: 1.6%;
+}
+
+.card-detail-content h4 {
+    font-size: 12px;
+    line-height: 22px;
+    font-weight: bold;
+    color: var(--color-esconder);
+    cursor: pointer;
+}
+
+.card-detail-content h3, h4 {
+    display: inline;
+}
+
+.hide {
+    display: none;
+}
+
+.show {
+    display: block;
+}

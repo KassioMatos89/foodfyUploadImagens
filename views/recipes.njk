@@ -1,0 +1,19 @@
+{% extends "layout.njk" %}
+    {% block content %}
+
+            <section id="meal" class="cards">
+                {% for recipe in recipes %}
+                <div id="{{ recipe.id }}" class="card">
+                    <div class="card__image-container">
+                        <img src="{{ recipe.image }}" alt="{{ recipe.title }}">
+                    </div>
+                    <div class="card__title">
+                        <p class="title">{{ recipe.title }}</p>
+                    </div>
+                    <div class="card__author">
+                        <p class="author">{{ recipe.author }}</p>
+                    </div>
+                </div>
+                {% endfor %}
+            </section>
+    {% endblock %}

@@ -1,0 +1,342 @@
+@import "https://fonts.googleapis.com/css?family=Roboto:400,700&display=swap";
+
+:root {
+    --color-author: #777777;
+    --color-footer: #EEEEEE;
+    --color-esconder: #999999;
+    --color-btn_submit: #6558C3;
+    --color-delete: #DC4747;
+    --color-btn_color_txt: #ffffff;
+}
+
+* {
+    margin: 0;
+    border: 0;
+    padding: 0;
+}
+
+body {
+    color: #111111;
+    font-family: 'Roboto', sans-serif;
+}
+
+.container {
+    max-width: 940px;
+    position: relative;
+    top: 0;
+    margin: 0 auto;
+}
+
+.header {
+    background: url(assets/logo.png) no-repeat 20% 50%;
+    padding: 32px;
+    background-color: #111111;
+    text-align: center;
+    margin-bottom: 4.5%;
+}
+
+.menu {
+    font-size: 16px;
+    text-indent: 15.2%;
+}
+
+.index {
+    position: absolute;
+    left: 0;
+    text-decoration: red;
+    width: 50px;
+    height: 50px;
+}
+
+.menu a {
+    text-decoration: none;
+    padding: 0 2.1%;
+}
+
+.best-menu {
+    background: #FBDFDB;
+    border-radius: 30px;
+    width: 100%;
+    height: 366px;
+    position: relative;
+}
+
+.best-menu h1 {
+    font-size: 32px;
+    line-height: 42px;
+    position: absolute;
+    margin-top: 10.6%;
+    margin-left: 4.3%;
+    margin-bottom: 0.9%;
+}
+
+.best-menu p {
+    font-size: 18px;
+    line-height: 28px;
+    color: #000000;
+    opacity: 0.7;
+    max-width: 316px;
+    position: absolute;
+    margin-top: 15%;
+    margin-left: 4.3%;
+}
+
+.best-menu img {
+    position: absolute;
+    bottom: 0;
+    right: 7.1%;
+}
+
+.most-accessed-title {
+    font-size: 24px;
+    line-height: 34px;
+    margin-top: 4.5%;
+    margin-bottom: 1.8%;
+}
+
+/* == BUTTONS == */
+
+.btn_action,
+.btn_submit {
+    position: absolute;
+    height: 19px;
+    background-color: var(--color-btn_submit);
+    border-radius: 4px;
+    right: 0%;
+    top: 2px;
+    padding: 0.6% 1.4%;
+    text-align: center;
+    font-size: 16px;
+}
+
+button.btn_delete {
+    position: absolute;
+    height: 37px;
+    width: 110px;
+    background-color: var(--color-delete);
+    border-radius: 4px;
+    right: 130px;
+    top: 2px;
+    padding: 0.6% 1.4%;
+    text-align: center;
+    font-size: 16px;
+    color: var(--color-btn_color_txt);
+    margin-right: 2.1%;
+}
+
+/* === RECIPES CARDS === */
+
+.head-content {
+    position: relative;
+    margin-bottom: 2.7%;
+}
+
+h1.recipes-title {
+    font-size: 24px;
+}
+
+a.btn_action{
+    text-decoration: none;
+    color: var(--color-btn_color_txt);
+}
+
+.card-recipe {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+.card-detail{
+    margin-left: 5.4%;
+}
+
+.card-image img{
+    width: 172px;
+    height: 80px;
+    border-radius: 8.57px;
+}
+
+.cards{
+    display: grid;
+    grid-template-columns: 172px 1fr;
+    margin-bottom: 1.8%;
+    box-sizing: border-box;
+}
+
+.view-recipe {
+    font-size: 14px;
+    line-height: 24px;
+    color: #6558C3;
+}
+
+a.view-recipe {
+    text-decoration: none;
+    cursor: pointer;
+}
+
+p.title {
+    font-size: 18px;
+    line-height: 28px;
+    color: #111111;
+}
+
+p.author {
+    font-size: 14px;
+    line-height: 24px;
+    color: #777777;
+}
+
+footer {
+    background-color: var(--color-footer);
+    height: 62px;
+    margin-top: 3%;
+}
+
+footer p {
+    font-size: 14px;
+    line-height: 24px;
+    color: #999999;
+    text-align: center;
+    padding: 1.5%;
+}
+
+
+/* === DETAIL CARDS (SHOW) === */
+
+h1.head-title {
+    font-size: 24px;
+    margin-bottom: 1.6%;
+    font-weight: bold;
+}
+
+.card-detail-head {
+    margin-bottom: 50px;
+    position: relative;
+    box-sizing: border-box;
+}
+
+.card__image-container-detail {
+    margin-bottom: 50px;
+    box-sizing: border-box;
+}
+
+.card__image-container-detail img{
+    width: 100%;
+    height: 280px;
+    border-radius: 15px;
+    
+}
+
+.card-detail-content ul{
+    list-style-position: inside;
+}
+
+.card-detail-content .ingredients, .preparation, .information {
+    margin-bottom: 3.1%;
+}
+
+.card-detail-content ul, p {
+    font-size: 18px;
+    line-height: 28px;
+    color: #444444;
+    margin-top: 1.6%;
+}
+
+.card__title-detail h1 {
+    font-size: 36px;
+    line-height: 46px;
+    text-align: center;
+    font-weight: bold;
+}
+
+.card__author-detail h2 {
+    font-size: 20px;
+    line-height: 30px;
+    text-align: center;
+    font-weight: unset;
+    color: var(--color-author)
+}
+
+.card-detail-content h3 {
+    font-size: 24px;
+    line-height: 34px;
+    font-weight: bold;
+    margin-right: 0.6%;
+    margin-bottom: 1.6%;
+}
+
+.card-detail-content h4 {
+    font-size: 12px;
+    line-height: 22px;
+    font-weight: bold;
+    color: var(--color-esconder);
+    cursor: pointer;
+}
+
+.card-detail-content h3, h4 {
+    display: inline;
+}
+
+.hide {
+    display: none;
+}
+
+.show {
+    display: block;
+}
+
+/* CREATE RECIPE (FORM) */
+
+.form-recipe h1 {
+    font-size: 24px;
+}
+
+#btn_save {
+    color: var(--color-btn_color_txt);
+    height: 37px;
+    width: 139px;
+}
+
+.item div {
+    font-size: 16px;
+    line-height: 26px;
+    color: #111111;
+    font-weight: bold;
+    margin-top: 2%;
+    margin-bottom: 0.7%;
+}
+
+input {
+    width: 100%;
+    height: 49px;
+    background: #ffffff;
+    border: 1px solid #dddddd;
+    outline: none;
+}
+
+.last-input {
+    height: 257px;
+    flex-wrap: wrap;
+}
+
+.link-action {
+    margin-top: 1%;
+}
+
+.link-action a {
+    font-size: 16px;
+    line-height: 26px;
+    color: #6558C3;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+/* === EDIT RECIPE === */
+
+input {
+    text-indent: 1.4%;
+    font-size: 16px;
+}
+
+.ingredient input{
+    margin-bottom: 0.7%;
+}
