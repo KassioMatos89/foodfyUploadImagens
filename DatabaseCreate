@@ -1,0 +1,19 @@
+CREATE DATABASE foodfy
+
+CREATE TABLE receipts (
+	id integer primary key not null,
+  chef_id integer null,
+  image text,
+	title text,
+	ingredients text[],
+	preparation text[],
+	information text,
+	created_at timestamp
+)
+
+CREATE TABLE chefs (
+  id integer primary key not null,
+  name text,
+  avatar_url text,
+  created_at timestamp
+)
