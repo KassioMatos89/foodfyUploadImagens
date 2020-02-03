@@ -1,16 +1,21 @@
-const data = require('../data.json')
+const data = require('../../../data.json')
 const fs = require('fs')
 
 
-//INDEX
-exports.home = function(req, res){
-    return res.redirect("admin/recipes")
-}
-
 //HOME
+exports.home = function(req, res){
+    const homeInf = {
+        title: "As melhores receitas",
+        description: "Aprenda a construir os melhores pratos com receitas criadas por profissionais do mundo inteiro.",
+        cardsTitle: "Mais acessadas"
+    }
+    return res.render("index", { recipes: data.recipes, homeInf })
+}
+/*
+//INDEX
 exports.index = function(req, res){
     //return res.send('Teste')
-    return res.render("admin/recipes", { recipes: data.recipes })
+    return res.render("recipes", { recipes: data.recipes })
 }   
 
 //CREATE
@@ -123,3 +128,4 @@ exports.delete = function(req, res){
         return res.redirect("recipes")
     })
 }
+*/
