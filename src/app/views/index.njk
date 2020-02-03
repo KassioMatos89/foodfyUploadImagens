@@ -12,6 +12,7 @@
             <h1 class="most-accessed-title">{{ homeInf.cardsTitle }}</h1>
             
             <section class="cards">
+
             {% for recipe in recipes %}
                 <div id="{{ recipe.id }}" class="card">
                     <div class="card__image-container">
@@ -25,5 +26,6 @@
                     </div>
                 </div>
             {% endfor %}
+            
             </section>
     {% endblock %}
