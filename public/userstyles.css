@@ -4,6 +4,8 @@
     --color-author: #777777;
     --color-footer: #EEEEEE;
     --color-esconder: #999999;
+    --color-textDefault: #111111;
+    --color-rocket: #6558C3;
 }
 
 * {
@@ -13,7 +15,7 @@
 }
 
 body {
-    color: #111111;
+    color: var(--color-textDefault);
     font-family: 'Roboto', sans-serif;
 }
 
@@ -25,12 +27,11 @@ body {
     margin: 0 auto;
 }
 
-/* == HEADER === */
+/* == HEADER AND MENU === */
 
 .header {
     background: url(assets/userlogo.png) no-repeat 0 50%;
     background-color: white;
-    text-align: center;
     padding: 4px;
     margin-top: 36.1px;
     margin-bottom: 30px;
@@ -38,13 +39,47 @@ body {
 
 .menu {
     font-size: 16px;
-    text-indent: 120px;
+    text-indent: 213px;
 }
 
 .menu a {
     text-decoration: none;
-    padding: 0 2.1%;
+    margin: 0 2.1%;
 }
+
+.menu form {
+    position: absolute;
+    right: 4px;
+    top: -4px;
+    padding: 0;
+    margin: 0;
+    display: inline-block;
+    width: 365px;
+}
+
+input {
+    position: absolute;
+    width: initial;
+    outline: none;
+    border: 1px solid #DDDDDD;
+    border-radius: 4px;
+    padding: 10px 15px;
+    right: 100px;
+}
+
+.menu form button {
+    position: absolute;
+    background: var(--color-rocket);
+    color: #ffffff;
+    border-radius: 4px;
+    padding: 9px 20px;
+    width: 91px;
+    height: 37px;
+    right: 0;
+    cursor: pointer;
+}
+
+/* === Central content */
 
 .best-menu {
     background: #FBDFDB;
@@ -78,7 +113,7 @@ body {
 .best-menu img {
     position: absolute;
     bottom: 0;
-    right: 7.1%;
+    right: 100px;
 }
 
 .most-accessed-title {
@@ -98,18 +133,35 @@ h1.recipes-title {
 .cards {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
-    widows: 940px;
+    width: 940px;
+    gap: 20px;
 }
 
 .card{
     display: grid;
-    grid-template-columns: 1fr;    
+    grid-template-columns: 1fr;
+    width: 300px;
+}
+
+.card__image-container {
+    margin-bottom: 20px;
 }
 
 .card__image-container img {
     width: 300px;
     height: 140px;
     border-radius: 15px;
+}
+
+.card__title p {
+    font-size: 18px;
+    line-height: 28px;
+}
+
+.card__author p {
+    font-size: 14px;
+    line-height: 24px;
+    color: var(--color-author);
 }
 
 /*

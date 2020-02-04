@@ -18,11 +18,13 @@
                     <div class="card__image-container">
                         <img src="{{ recipe.image }}" alt="{{ recipe.title }}">
                     </div>
-                    <div class="card__title">
-                        <p class="title">{{ recipe.title }}</p>
-                    </div>
-                    <div class="card__author">
-                        <p class="author">{{ recipe.author }}</p>
+                    <div class="card_content">
+                        <div class="card__title">
+                            <p class="title">{{ recipe.title }}</p>
+                        </div>
+                        <div class="card__author">
+                            <p class="author">{{ recipe.author }}</p>
+                        </div>
                     </div>
                 </div>
             {% endfor %}
