@@ -11,11 +11,15 @@ exports.home = function(req, res){
     }
     return res.render("index", { recipes: data.recipes, homeInf })
 }
-/*
+
+exports.about = function (req, res) {
+    return res.render ("about")
+}
+
 //INDEX
 exports.index = function(req, res){
     //return res.send('Teste')
-    return res.render("recipes", { recipes: data.recipes })
+    return res.render("admin/recipes", { recipes: data.recipes })
 }   
 
 //CREATE
@@ -128,4 +132,3 @@ exports.delete = function(req, res){
         return res.redirect("recipes")
     })
 }
-*/

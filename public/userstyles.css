@@ -164,6 +164,22 @@ h1.recipes-title {
     color: var(--color-author);
 }
 
+/* === FOOTER === */
+
+footer {
+    background-color: var(--color-footer);
+    height: 62px;
+    margin-top: 3%;
+}
+
+footer p {
+    font-size: 14px;
+    line-height: 24px;
+    color: #999999;
+    text-align: center;
+    padding: 1.5%;
+}
+
 /*
 .card-recipe {
     display: grid;
@@ -180,19 +196,7 @@ h1.recipes-title {
     border-radius: 8.57px;
 }
 
-footer {
-    background-color: var(--color-footer);
-    height: 62px;
-    margin-top: 3%;
-}
 
-footer p {
-    font-size: 14px;
-    line-height: 24px;
-    color: #999999;
-    text-align: center;
-    padding: 1.5%;
-}
 
 
 /* === DETAIL CARDS === */
