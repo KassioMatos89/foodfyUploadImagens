@@ -1,3 +1,13 @@
+// Lógica para menu ativo
+const currentPage = location.pathname
+const menuItems = document.querySelectorAll(".header a")
+
+for( item of menuItems ) {
+    if( currentPage.includes(item.getAttribute("href")) ) {
+        item.classList.add("activeMenu")
+    }
+}
+
 // Lógica para lista de receitas, quando uma for clicada, será direcionado para o front de detalhes da receita (recipes.njk)
 const cards = document.querySelectorAll('.view-recipe')
 

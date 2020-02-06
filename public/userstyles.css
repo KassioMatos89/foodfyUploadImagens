@@ -57,6 +57,10 @@ body {
     color: var(--color-textDefault);
 }
 
+.menu a.activeMenu {
+    color: var(--color-rocket);
+}
+
 .menu a:hover {
     color: var(--color-rocket);
 }
@@ -199,100 +203,3 @@ footer p {
     text-align: center;
     padding: 1.5%;
 }
-
-/*
-.card-recipe {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-}
-
-.card-detail{
-    margin-right: 1.4%;
-}
-
-.card-image img{
-    width: 172px;
-    height: 80px;
-    border-radius: 8.57px;
-}
-
-
-
-
-/* === DETAIL CARDS === */
-
-
-/*
-.cards {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-}
-
-.card {
-    width: 300px;
-    height: 140px;
-}
-
-.card-detail-head {
-    margin-bottom: 50px;
-}
-
-.card__image-container-detail img{
-    border-radius: 15px;
-    margin-bottom: 50px;
-}
-
-.card-detail-content .ingredients, .preparation, .information {
-    margin-bottom: 3.1%;
-}
-
-.card-detail-content ul, p {
-    font-size: 18px;
-    line-height: 28px;
-    color: #444444;
-    margin-top: 1.6%;
-}
-
-.card__title-detail h1 {
-    font-size: 36px;
-    line-height: 46px;
-    text-align: center;
-    font-weight: bold;
-}
-
-.card__author-detail h2 {
-    font-size: 20px;
-    line-height: 30px;
-    text-align: center;
-    font-weight: unset;
-    color: var(--color-author)
-}
-
-.card-detail-content h3 {
-    font-size: 24px;
-    line-height: 34px;
-    font-weight: bold;
-    margin-right: 0.6%;
-    margin-bottom: 1.6%;
-}
-
-.card-detail-content h4 {
-    font-size: 12px;
-    line-height: 22px;
-    font-weight: bold;
-    color: var(--color-esconder);
-    cursor: pointer;
-}
-
-.card-detail-content h3, h4 {
-    display: inline;
-}
-
-.hide {
-    display: none;
-}
-
-.show {
-    display: block;
-}
-*/
