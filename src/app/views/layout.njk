@@ -8,19 +8,24 @@
     <body>
         <div class="container">
             <header class="header">
+                <a href="/">
+                    <div class="logo"></div>
+                </a>
+                
                 <nav class="menu">
                     <a href="/about">Sobre</a>
                     <a href="/recipes">Receitas</a>
                     <a href="/chefs">Chefs</a>
-                    <form action="/recipes" method="get" id="btn_find_recipe">
-                        <input 
-                            type="text" 
-                            name="filter" 
-                            placeholder="Buscar uma receita"
-                        >
-                        <button type="submit">Buscar</button>
-                    </form>
                 </nav>
+                
+                <form action="/recipes" method="get" id="btn_find_recipe">
+                    <input 
+                        type="text" 
+                        name="filter" 
+                        placeholder="Buscar uma receita"
+                    >
+                    <button type="submit">Buscar</button>
+                </form>
                 
             </header>
 

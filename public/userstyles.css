@@ -6,6 +6,7 @@
     --color-esconder: #999999;
     --color-textDefault: #111111;
     --color-rocket: #6558C3;
+    --color-placeholderFind: #999999;
 }
 
 * {
@@ -30,24 +31,37 @@ body {
 /* == HEADER AND MENU === */
 
 .header {
-    background: url(assets/userlogo.png) no-repeat 0 50%;
     background-color: white;
     padding: 4px;
     margin-top: 36.1px;
     margin-bottom: 30px;
+    display: grid;
+    grid-template-columns: 90.6px 1fr 1fr;
+}
+
+.logo {
+    background: url(assets/userlogo.png);
+    width: 90.6px;
+    height: 26.9px;
+    cursor: pointer;
 }
 
 .menu {
     font-size: 16px;
-    text-indent: 213px;
+    text-indent: 100px;  
 }
 
 .menu a {
     text-decoration: none;
     margin: 0 2.1%;
+    color: var(--color-textDefault);
 }
 
-.menu form {
+.menu a:hover {
+    color: var(--color-rocket);
+}
+
+form {
     position: absolute;
     right: 4px;
     top: -4px;
@@ -59,7 +73,7 @@ body {
 
 input {
     position: absolute;
-    width: initial;
+    width: 246px;
     outline: none;
     border: 1px solid #DDDDDD;
     border-radius: 4px;
@@ -67,7 +81,13 @@ input {
     right: 100px;
 }
 
-.menu form button {
+input::placeholder {
+    font-size: 14px;
+    line-height: 24px;
+    color: var(--color-placeholderFind);
+}
+
+form button {
     position: absolute;
     background: var(--color-rocket);
     color: #ffffff;
@@ -75,7 +95,7 @@ input {
     padding: 9px 20px;
     width: 91px;
     height: 37px;
-    right: 0;
+    right: -3px;
     cursor: pointer;
 }
 

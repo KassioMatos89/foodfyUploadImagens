@@ -6,9 +6,8 @@ routes.get("/", recipes.home)
 
 // USER ROUTES
 routes.get("/about", recipes.about)
-/*
-routes.get("/recipes", recipes.index)
-*/
+routes.get("/recipes", recipes.indexUsers)
+
 // ADMIN ROUTES
 routes.get("/admin/recipes", recipes.index)
 routes.get("/admin/recipes/create", recipes.create)

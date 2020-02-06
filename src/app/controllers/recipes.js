@@ -16,11 +16,16 @@ exports.about = function (req, res) {
     return res.render ("about")
 }
 
+//INDEX USERS
+exports.indexUsers = function(req, res) {
+    return res.render ("recipes", { recipes: data.recipes })
+}
+
 //INDEX
 exports.index = function(req, res){
     //return res.send('Teste')
     return res.render("admin/recipes", { recipes: data.recipes })
-}   
+}
 
 //CREATE
 exports.create = function(req, res){
