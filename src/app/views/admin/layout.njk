@@ -7,10 +7,18 @@
     </head>
     <body>
 
-        <header class="header">
-        </header>
-
         <div class="container">
+            <header class="header">
+                <a href="/">
+                    <div class="logo"></div>
+                </a>
+                
+                <nav class="menu">
+                    <a href="/about">Sobre</a>
+                    <a href="/recipes">Receitas</a>
+                    <a href="/chefs">Chefs</a>
+                </nav>
+            </header>
 
             {% block content %}
             {% endblock %}

@@ -4,8 +4,10 @@
     --color-author: #777777;
     --color-footer: #EEEEEE;
     --color-esconder: #999999;
-    --color-btn_submit: #6558C3;
+    --color-textDefault: #111111;
+    --color-rocket: #6558C3;
     --color-delete: #DC4747;
+    --color-placeholderFind: #999999;
     --color-btn_color_txt: #ffffff;
 }
 
@@ -16,7 +18,7 @@
 }
 
 body {
-    color: #111111;
+    color: var(--color-textDefault);
     font-family: 'Roboto', sans-serif;
 }
 
@@ -28,11 +30,22 @@ body {
 }
 
 .header {
-    background: url(assets/logo.png) no-repeat 20% 50%;
-    padding: 32px;
     background-color: #111111;
-    text-align: center;
-    margin-bottom: 4.5%;
+    padding: 4px;
+    margin-top: 36.1px;
+    margin-bottom: 30px;
+    display: grid;
+    grid-template-columns: 90.6px 1fr 1fr;
+
+    
+    width: 100%;
+}
+
+.logo {
+    background: url(assets/logo.png);
+    width: 90.6px;
+    height: 26.9px;
+    cursor: pointer;
 }
 
 .menu {
@@ -100,7 +113,7 @@ body {
 .btn_submit {
     position: absolute;
     height: 19px;
-    background-color: var(--color-btn_submit);
+    background-color: var(--color-rocket);
     border-radius: 4px;
     right: 0%;
     top: 2px;

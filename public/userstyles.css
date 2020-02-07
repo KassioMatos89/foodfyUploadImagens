@@ -6,7 +6,9 @@
     --color-esconder: #999999;
     --color-textDefault: #111111;
     --color-rocket: #6558C3;
+    --color-delete: #DC4747;
     --color-placeholderFind: #999999;
+    --color-btn_color_txt: #ffffff;
 }
 
 * {
@@ -59,6 +61,7 @@ body {
 
 .menu a.activeMenu {
     color: var(--color-rocket);
+    font-weight: bold;
 }
 
 .menu a:hover {

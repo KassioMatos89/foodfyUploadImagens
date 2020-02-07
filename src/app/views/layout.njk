@@ -17,7 +17,7 @@
                     <a href="/recipes">Receitas</a>
                     <a href="/chefs">Chefs</a>
                 </nav>
-                
+                {% block findForm %}
                 <form action="/recipes" method="get" id="btn_find_recipe">
                     <input 
                         type="text" 
@@ -26,6 +26,7 @@
                     >
                     <button type="submit">Buscar</button>
                 </form>
+                {% endblock %}
                 
             </header>
 

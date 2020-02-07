@@ -27,7 +27,9 @@ module.exports = {
     },
     // Admin Index - Render Admin index page
     index ( req, res ) {
-        return res.render("admin/recipes", { recipes: data.recipes })
+        Recipe.all(function(recipes){
+            return res.render ("admin/recipes", { recipes })
+        })
     },
     // Admin Create - Render Admin create recipe page
     create ( req, res ) {
