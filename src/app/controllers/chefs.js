@@ -1,7 +1,10 @@
-const fs = require('fs')
+const Chef = require('../models/Chef')
 
 module.exports = {
     show ( req, res ) {
-        return res.render("chefs")
+        Chef.all(function(chefs){
+            console.log(chefs)
+            return res.render("admin/chefs", { chefs })
+        })
     }
 }

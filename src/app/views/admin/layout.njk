@@ -7,18 +7,20 @@
     </head>
     <body>
 
-        <div class="container">
-            <header class="header">
-                <a href="/">
+        <div class="header">
+            <header class="header_containter">
+                <a href="/admin/recipes">
                     <div class="logo"></div>
                 </a>
                 
                 <nav class="menu">
-                    <a href="/about">Sobre</a>
-                    <a href="/recipes">Receitas</a>
-                    <a href="/chefs">Chefs</a>
+                    <a href="/admin/recipes">RECEITAS</a>
+                    <a href="/admin/chefs">CHEFS</a>
                 </nav>
             </header>
+        </div>
+
+        <div class="container">
 
             {% block content %}
             {% endblock %}

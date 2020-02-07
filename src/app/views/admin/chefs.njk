@@ -1,0 +1,37 @@
+{% extends "admin/layout.njk" %}
+
+{% block findForm %}
+    <form action="/chefs" method="get" id="btn_find_chefe">
+        <input 
+            type="text" 
+            name="filter" 
+            placeholder="Buscar Chefe"
+        >
+        <button type="submit">Buscar</button>
+    </form>
+{% endblock %}
+
+{% block content %}
+    <div class="head-content">
+        <h1 class="recipes-title">Gerenciar chefs</h1>
+        <a href="/admin/chefs/create" class="btn_action">Novo chefe</a>
+    </div>
+
+    <section class="avatar_cards">
+
+        {% for chef in chefs %}
+        <div class="avatar_card">
+            <div class="avatar_img">
+                <figure>
+                    <img src="{{ chef.avatar_url }}" alt="{{ chef.name }}">
+                </figure>
+            </div>
+            <div class="chef_name">
+                <h4>{{ chef.name }}</h4>
+                <a href="#" class="">Visualizar</a>
+            </div>
+        </div>
+        {% endfor %}
+
+    </section>
+{% endblock %}
