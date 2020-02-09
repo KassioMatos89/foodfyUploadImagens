@@ -12,6 +12,7 @@ routes.get("/recipes", recipes.indexUsers)
 //CHEFS
 routes.get("/chefs", chefs.show)
 
+// *********************************************** //
 // ADMIN ROUTES
 //RECIPES
 routes.get("/admin/recipes", recipes.index)
@@ -25,4 +26,5 @@ routes.delete("/admin/recipes", recipes.delete)
 
 //CHEFS
 routes.get("/admin/chefs", chefs.show)
+routes.get("/admin/chefs/createchefs", chefs.create)
 module.exports = routes

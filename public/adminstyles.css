@@ -315,7 +315,8 @@ h1.head-title {
 
 /* CREATE RECIPE (FORM) */
 
-.form-recipe h1 {
+.form-recipe h1,
+.form-chef h1 {
     font-size: 24px;
 }
 
