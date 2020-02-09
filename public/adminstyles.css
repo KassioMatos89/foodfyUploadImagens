@@ -9,6 +9,7 @@
     --color-delete: #DC4747;
     --color-placeholderFind: #999999;
     --color-btn_color_txt: #ffffff;
+    --color-header: #111111;
 }
 
 * {
@@ -30,15 +31,22 @@ body {
 }
 
 .header {
-    background-color: #111111;
-    padding: 4px;
-    margin-top: 36.1px;
-    margin-bottom: 30px;
-    display: grid;
-    grid-template-columns: 90.6px 1fr 1fr;
-
-    
+    background-color: var(--color-header);
     width: 100%;
+    height: 80px;
+    margin-bottom: 30px;
+}
+
+.header_containter {
+    background-color: var(--color-header);
+    margin: 0 auto;
+    max-width: 940px;
+    width: 940px;
+    height: 100%;
+    box-sizing: border-box;
+    display: grid;
+    grid-template-columns: 94px 1fr 1fr;
+    align-items: center;
 }
 
 .logo {
@@ -49,7 +57,7 @@ body {
 }
 
 .menu {
-    font-size: 16px;
+    font-size: 15px;
     text-indent: 15.2%;
 }
 
@@ -64,6 +72,14 @@ body {
 .menu a {
     text-decoration: none;
     padding: 0 2.1%;
+    color: var(--color-btn_color_txt);
+    font-size: 15px;
+    font-weight: bold;
+}
+
+.menu a.activeMenu {
+    color: var(--color-rocket);
+    font-weight: bold;
 }
 
 .best-menu {
@@ -352,4 +368,28 @@ input {
 
 .ingredient input{
     margin-bottom: 0.7%;
+}
+
+/* === CHEFS LIST === */
+
+.avatar_cards {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    gap: 30px;
+}
+
+.avatar_card {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+.avatar_img {
+    width: 64px;
+    height: 64px;
+}
+
+.avatar_img img {
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
 }
