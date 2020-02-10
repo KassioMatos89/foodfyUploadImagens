@@ -1,7 +1,14 @@
 CREATE DATABASE foodfy
 
+CREATE TABLE chefs (
+  id SERIAL primary key not null,
+  name text,
+  avatar_url text,
+  created_at timestamp
+)
+
 CREATE TABLE receipts (
-	id integer primary key not null,
+	id SERIAL primary key not null,
   chef_id integer null,
   image text,
 	title text,
@@ -9,11 +16,4 @@ CREATE TABLE receipts (
 	preparation text[],
 	information text,
 	created_at timestamp
-)
-
-CREATE TABLE chefs (
-  id integer primary key not null,
-  name text,
-  avatar_url text,
-  created_at timestamp
 )

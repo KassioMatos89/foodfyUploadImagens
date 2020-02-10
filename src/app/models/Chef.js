@@ -25,8 +25,8 @@ module.exports = {
         `
 
         const values = [
-            data.name,
-            data.avatar_url,
+            data.chef_name,
+            data.chef_avatar_url,
             date(Date.now()).iso
         ]
 
