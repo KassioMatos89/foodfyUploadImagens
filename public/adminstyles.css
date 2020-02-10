@@ -157,7 +157,7 @@ button.btn_delete {
 
 .head-content {
     position: relative;
-    margin-bottom: 2.7%;
+    margin-bottom: 30px;
 }
 
 h1.recipes-title {
@@ -376,12 +376,13 @@ input {
 .avatar_cards {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
-    gap: 30px;
+    gap: 25px 30px;
 }
 
 .avatar_card {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 64PX 1fr;
+    gap: 20px;
 }
 
 .avatar_img {
@@ -393,4 +394,17 @@ input {
     width: 64px;
     height: 64px;
     border-radius: 50%;
+}
+
+.chef_name h3 {
+    font-size: 18px;
+    color: var(--color-header);
+    font-weight: unset;
+}
+
+.chef_name a {
+    font-size: 14px;
+    color: var(--color-rocket);
+    text-decoration: none;
+    font-weight: bold;
 }

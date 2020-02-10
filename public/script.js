@@ -19,6 +19,7 @@ for(let card of cards){
 }
 
 // Lógica para esconder/mostrar os detalhes da receita
+
 const buttons = document.querySelectorAll('h4')
 const contents = document.querySelectorAll('.topic-content')
 

@@ -14,14 +14,13 @@ module.exports = {
     post ( req, res ) {
         const keys = Object.keys(req.body)
 
-        for (key in keys) {
+        for ( key of keys ) {
             if ( req.body[key] == "")
-            return res.send('Please, fill all fields')
+                return res.send('Please, fill all fields')
         }
 
         Chef.create(req.body, function(chef){
-            return res.send('Ok, chegou aqui')
-            //return res.redirect(`/admin/chefs/${chef.id}`)
+            return res.redirect(`/admin/chefs/${chef.id}`)
         })
     }
 }
