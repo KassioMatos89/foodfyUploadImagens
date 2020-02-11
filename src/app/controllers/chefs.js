@@ -4,9 +4,16 @@ const Chef = require('../models/Chef')
 module.exports = {
     show ( req, res ) {
         Chef.all(function(chefs){
-            console.log(chefs)
+            return res.render("chefs", { chefs })
+        })
+    },
+    showAdmin ( req, res ) {
+        Chef.all(function(chefs){
             return res.render("admin/chefs", { chefs })
         })
+    },
+    showChefDetail ( req, res ) {
+        return res.render("admin/chefdetail")
     },
     create ( req, res ) {
         return res.render('admin/createchefs')

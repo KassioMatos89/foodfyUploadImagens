@@ -35,5 +35,8 @@ module.exports = {
 
             callback(results.rows[0])
         })
+    },
+    find(id, callback) {
+        
     }
 }
