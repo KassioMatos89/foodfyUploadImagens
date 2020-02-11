@@ -2,7 +2,27 @@
 
 {% block content %}
     <div class="header_chef">
-        <h1>Chef: Júlia Kinoto</h1>
+        <h3>Chef: {{ chef.name }}</h3>
         <a href="/admin/chefs/1/edit">Editar chef</a>
     </div>
+    
+    <div class="chef_profile">
+        <div class="profile_image">
+            <section 
+                class="avatar_chef"
+                style="background: url({{ chef.avatar_url }}) no-repeat center top / cover">
+            </section>
+        </div>
+        <div class="chef_info">
+            <div class="chef_name">
+                <h1>{{ chef.name }}</h1>
+            </div>
+        </div>
+    </div>
+
+    <div class="chef_recipes">
+        <h2>Receitas</h2>
+    </div>
+
+
 {% endblock %}

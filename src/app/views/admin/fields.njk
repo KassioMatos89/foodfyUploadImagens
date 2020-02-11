@@ -1,6 +1,15 @@
 <button type="Submit" id="btn_save" class="btn_submit">Salvar receita</button>
 
             <div class="item">
+                <div>Titulo da receita</div>
+                <input 
+                    type="text"
+                    name="recipe_title"
+                    value="{{ recipes.title }}"
+                />
+            </div>
+
+            <div class="item">
                 <div>Imagem da receita</div>
                 <input 
                     type="url"
@@ -33,7 +42,7 @@
                         <div class="preparation">
                             <input 
                                 type="text"
-                                name="recipe_preparation"
+                                name="recipe_preparation[]"
                                 value="{{ recipes.preparation }}"
                             />
                         </div>
