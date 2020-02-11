@@ -418,8 +418,36 @@ input {
     grid-template-columns: 1fr 120px;
 }
 
-.header_chef h1 {
+.header_chef h3 {
     font-size: 24px;
     line-height: 34px;
     font-weight: bold;
+}
+
+.chef_profile {
+    width: 200px;
+    margin: 0 auto;
+    margin-top: 42px;
+    margin-bottom: 50px;
+}
+
+.profile_image {
+    width: 200px;
+    margin-bottom: 30px;
+}
+
+.avatar_chef {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    border: 1px solid rgb(211, 210, 210);
+}
+
+.chef_name {
+    text-align: center;
+}
+
+.chef_name h1 {
+    text-align: center;
+    font-size: 36px;
 }

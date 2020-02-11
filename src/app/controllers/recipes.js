@@ -55,23 +55,12 @@ module.exports = {
             if(req.body[key] === "") return res.send ("Please, fill all fields")
         }
 
-        let { recipe_image, recipe_ingredient, recipe_preparation, recipe_information } = req.body
-
-        
-
-        data.recipes.push({
-            id: Number(data.recipes.length + 1),
-            image: recipe_image,
-            ingredients: recipe_ingredient, 
-            preparation: recipe_preparation,
-            information: recipe_information
-        })
-
-        fs.writeFile("data.json", JSON.stringify(data, null, 2), function(err){ 
-            if (err) return res.send("Write file error")
-
+        Recipe.create (req.body, function(recipe){
+            
             return res.redirect("admin/recipes")
         })
+
+
     },
     //EDIT - Used to edit a recipe
     edit ( req, res ) {
