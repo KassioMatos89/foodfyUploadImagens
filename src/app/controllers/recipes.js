@@ -40,15 +40,12 @@ module.exports = {
     },
     // SHOW - Show the recipes details in show page
     show ( req, res ) {
-        const { id } = req.params
-
-        const foundRecipe = data.recipes.find(function(recipe){
-            return id == recipe.id
+        Recipe.find(req.params.id, function(recipe){
+            if(!recipe) return res.send('Recipe not found!')
+            console.log(recipe)
+            return res.render ("admin/show", { recipes: recipe })
         })
 
-            if(!foundRecipe) return res.send('Recipe not found')
-            
-            return res.render ("admin/show", { recipes: foundRecipe })
     },
     // POST - Used to create a new recipe
     post ( req, res ) {
@@ -59,28 +56,21 @@ module.exports = {
         }
 
         Recipe.create (req.body, function(recipe){
-            
-            return res.redirect("admin/recipes")
+            //return res.send('Cadastro OK')
+            return res.redirect("/admin/recipes")
         })
 
 
     },
     //EDIT - Used to edit a recipe
     edit ( req, res ) {
-        const { id } = req.params
 
-        const foundRecipe = data.recipes.find(function(recipe){
-            return id == recipe.id
+        Recipe.find(req.params.id, function(recipe) {
+            if(!recipe) return res.send('Recipe not found!')
+
+            return res.render("admin/edit", { recipes: recipe })
         })
-    
-        if(!foundRecipe) return res.send('Recipe not found')
-    
-        const recipes = {
-            id: Number(id),
-            ...foundRecipe
-        }
-        return res.render("admin/edit", { recipes })
-    },
+    }/*,
     //PUT - Used to update a recipe
     put ( req, res ) {
         const { id, recipe_image, recipe_ingredient, recipe_preparation, recipe_information } = req.body
@@ -106,6 +96,7 @@ module.exports = {
             if (err) return res.send("write error")
             return res.redirect(`/admin/recipes/${id}`)
         })
+    
     },
     //DELETE - Used to delete a recipe
     delete ( req, res ) {
@@ -123,4 +114,5 @@ module.exports = {
             return res.redirect("recipes")
         })
     }
+    */        
 }
