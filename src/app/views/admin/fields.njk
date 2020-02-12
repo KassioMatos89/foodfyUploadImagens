@@ -19,6 +19,17 @@
             </div>
 
             <div class="item">
+                <div>Chef</div>
+                <select name="chef">
+                    {% for chef in chefOptions %}
+                        <option value="{{ chef.id }}" {% if recipes.chef_id == chef.id %} selected {% endif %}>
+                            {{ chef.name }}
+                        </option>
+                    {% endfor %}
+                </select>
+            </div>
+
+            <div class="item">
                 {% block ingredients %}
                     <div id="ingredients">Ingredientes
                         <div class="ingredient">
