@@ -33,7 +33,10 @@ module.exports = {
     },
     // Admin Create - Render Admin create recipe page
     create ( req, res ) {
-        return res.render("admin/create")
+        
+        Recipe.chefsSelectOptions(function(options) {
+            return res.render("admin/create", { chefOptions: options })
+        })
     },
     // SHOW - Show the recipes details in show page
     show ( req, res ) {
