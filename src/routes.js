@@ -21,8 +21,8 @@ routes.get("/admin/recipes/:id", recipes.show)
 routes.get("/admin/recipes/:id/edit", recipes.edit)
 
 routes.post("/admin/recipes", recipes.post)
-routes.put("/admin/recipes", recipes.put)
-routes.delete("/admin/recipes", recipes.delete)
+//routes.put("/admin/recipes", recipes.put)
+//routes.delete("/admin/recipes", recipes.delete)
 
 //CHEFS
 routes.get("/admin/chefs", chefs.showAdmin)
@@ -30,4 +30,5 @@ routes.get("/admin/chefs/createchefs", chefs.create)
 routes.get("/admin/chefs/:id", chefs.showChefDetail)
 
 routes.post("/admin/chefs", chefs.post)
+
 module.exports = routes
