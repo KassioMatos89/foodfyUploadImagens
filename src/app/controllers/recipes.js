@@ -42,7 +42,6 @@ module.exports = {
     show ( req, res ) {
         Recipe.find(req.params.id, function(recipe){
             if(!recipe) return res.send('Recipe not found!')
-            console.log(recipe)
             return res.render ("admin/show", { recipes: recipe })
         })
 
@@ -68,36 +67,26 @@ module.exports = {
         Recipe.find(req.params.id, function(recipe) {
             if(!recipe) return res.send('Recipe not found!')
 
-            return res.render("admin/edit", { recipes: recipe })
+            Recipe.chefsSelectOptions(function(options){
+                return res.render("admin/edit", { recipes: recipe, chefOptions: options })
+            })
         })
-    }/*,
+    },
     //PUT - Used to update a recipe
     put ( req, res ) {
-        const { id, recipe_image, recipe_ingredient, recipe_preparation, recipe_information } = req.body
-    
-        const foundRecipe = data.recipes.find(function(recipe){
-            return id == recipe.id
-        })
-    
-        if (!foundRecipe) return res.send ("Recipe not found!")
-    
-        const recipe = {
-            ...foundRecipe,
-            ...req.body,
-            image: recipe_image,
-            ingredients: recipe_ingredient, 
-            preparation: recipe_preparation,
-            information: recipe_information
+        
+        const keys = Object.keys(req.body)
+
+        for ( key of keys ) {
+            if (req.body[key] == "")
+                return res.send('Please, fill all fields')
         }
-    
-        data.recipes[id - 1] = recipe
-    
-        fs.writeFile("data.json", JSON.stringify(data, null, 2), function(err){
-            if (err) return res.send("write error")
-            return res.redirect(`/admin/recipes/${id}`)
+
+        Recipe.update(req.body, function() {
+            return res.redirect(`recipes/${req.body.id}`)
         })
     
-    },
+    }/*,
     //DELETE - Used to delete a recipe
     delete ( req, res ) {
         const { id } = req.body

@@ -178,10 +178,20 @@ a.btn_action{
     margin-left: 5.4%;
 }
 
-.card-image img{
+.card-image {
     width: 172px;
     height: 80px;
-    border-radius: 8.57px;
+    box-sizing: border-box;
+    border-radius: 8.57px 8.57px;
+    overflow: hidden;
+    object-fit: cover;
+}
+
+.card-image img{
+    width: 100%;
+    height: 80px;
+    object-fit: cover;
+    overflow: hidden;
 }
 
 .cards{
