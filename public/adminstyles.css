@@ -174,8 +174,11 @@ a.btn_action{
     grid-template-columns: 1fr 1fr;
 }
 
-.card-detail{
-    margin-left: 5.4%;
+.cards{
+    display: grid;
+    grid-template-columns: 172px 1fr;
+    margin-bottom: 1.8%;
+    box-sizing: border-box;
 }
 
 .card-image {
@@ -194,11 +197,8 @@ a.btn_action{
     overflow: hidden;
 }
 
-.cards{
-    display: grid;
-    grid-template-columns: 172px 1fr;
-    margin-bottom: 1.8%;
-    box-sizing: border-box;
+.card-detail{
+    margin-left: 5.4%;
 }
 
 .view-recipe {
@@ -451,10 +451,6 @@ input {
     height: 200px;
     border-radius: 50%;
     border: 1px solid rgb(211, 210, 210);
-}
-
-.chef_name {
-    text-align: center;
 }
 
 .chef_name h1 {
