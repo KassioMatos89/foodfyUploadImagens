@@ -86,22 +86,12 @@ module.exports = {
             return res.redirect(`recipes/${req.body.id}`)
         })
     
-    }/*,
+    },
     //DELETE - Used to delete a recipe
     delete ( req, res ) {
-        const { id } = req.body
-
-        const filteredRecipes = data.recipes.filter(function(recipe){
-            return recipe.id != id
-        })
-    
-        data.recipes = filteredRecipes
-    
-        fs.writeFile("data.json", JSON.stringify(data, null, 2), function(err){
-            if (err) return res.send("Write file error")
-    
+        
+        Recipe.delete(req.body.id, function(){
             return res.redirect("recipes")
-        })
-    }
-    */        
+        }) 
+    }        
 }

@@ -80,6 +80,14 @@ module.exports = {
             callback()
         })
     },
+    delete (id, callback) {
+        db.query(`
+            DELETE FROM receipts WHERE id = $1`, [id], function( err, results ) {
+                if ( err ) throw `Database Error! ${ err }`
+                
+                callback()
+        })
+    },
     chefsSelectOptions (callback) {
         db.query(`
             SELECT name, id FROM chefs ORDER BY name`, function( err, results ) {
