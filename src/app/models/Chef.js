@@ -38,16 +38,17 @@ module.exports = {
     },
     find(id, callback) {
         const query = `
-            SELECT *
-            FROM chefs
-            WHERE
-                id = $1
+        SELECT chefs.*, 
+            (SELECT count (*) FROM receipts WHERE receipts.chef_id = chefs.id) AS total_recipes, 
+            receipts.id AS recipe_id, receipts.title AS recipe_title, receipts.image AS recipe_image
+        FROM chefs
+        LEFT JOIN receipts ON (chefs.id = receipts.chef_id)
+        WHERE chefs.id = $1
         `
 
         db.query(query, [id], function ( err, results ) {
             if ( err ) throw `Database Error! ${ err }`
-
-            callback(results.rows[0])
+            callback(results.rows[0], results.rows)
         })
     }
 }

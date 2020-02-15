@@ -13,12 +13,24 @@ module.exports = {
         })
     },
     showChefDetail ( req, res ) {
-        Chef.find(req.params.id, function(chef) {
-            return res.render("admin/chefdetail", { chef })
+        Chef.find(req.params.id, function(chef, chef_recipes) {
+            
+            const qtd_recipes = chef.total_recipes
+
+            if( qtd_recipes > 0 ) {
+                return res.render("admin/chefdetail", { chef, chef_recipes, qtd_recipes })
+            }
+            return res.render("admin/chefdetail", { chef, qtd_recipes })
+
         })
     },
     create ( req, res ) {
         return res.render('admin/createchefs')
+    },
+    edit ( req, res ) {
+        Chef.find(req.params.id, function(chef){
+            return res.render('admin/chefedit', { chef })
+        })
     },
     post ( req, res ) {
         const keys = Object.keys(req.body)
