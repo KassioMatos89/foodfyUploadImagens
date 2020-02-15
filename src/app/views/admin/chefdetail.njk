@@ -3,7 +3,7 @@
 {% block content %}
     <div class="header_chef">
         <h3>Chef: {{ chef.name }}</h3>
-        <a href="/admin/chefs/1/edit">Editar chef</a>
+        <a href="/admin/chefs/1/edit" class="btn_action">Editar chef</a>
     </div>
     
     <div class="chef_profile">
@@ -17,12 +17,42 @@
             <div class="chef_name">
                 <h1>{{ chef.name }}</h1>
             </div>
+            <div class="total_recipes">
+                <p>{{ qtd_recipes }} receitas</p>
+            </div>
         </div>
     </div>
 
     <div class="chef_recipes">
-        <h2>Receitas</h2>
+        
+        <div class="head-content">
+            <h1 class="recipes-title">Receitas</h1>
+        </div>
+
+        <div class="card-recipe">
+
+            {% for chef_recipe in chef_recipes %}
+            <section class="cards">
+                <section class="card-image">
+                    <figure>
+                        <img src="{{ chef_recipe.recipe_image }}" alt="{{ chef_recipe.recipe_title }}">
+                    </figure>
+                </section>
+
+                <section class="card-detail">
+                    <div class="card__title">
+                        <p class="title">{{ chef_recipe.recipe_title }}</p>
+                    </div>
+
+                    <div class="card__author">
+                        <p class="author">por {{ chef_recipe.name }}</p>
+                    </div>
+
+                    <a id="{{chef_recipe.recipe_id}}" class="view-recipe">Visualizar</a>
+                </section> 
+            </section>
+            {% endfor %}
+
+        </div>
     </div>
-
-
 {% endblock %}
