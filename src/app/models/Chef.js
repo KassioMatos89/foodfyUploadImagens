@@ -50,5 +50,38 @@ module.exports = {
             if ( err ) throw `Database Error! ${ err }`
             callback(results.rows[0], results.rows)
         })
+    },
+    update(data, callback) {
+
+        const query = `
+            UPDATE chefs SET
+                name = ($1),
+                avatar_url = ($2)
+            WHERE id = ($3)
+            `
+
+        const values = [
+            data.chef_name,
+            data.chef_avatar_url,
+            data.id
+        ]
+        
+        db.query(query, values, function ( err, results ) {
+            if ( err ) throw `Database Error! ${ err }`
+
+            callback()
+        })
+
+    },
+    delete (id, callback) {
+        const query = `
+            DELETE FROM chefs WHERE id = $1
+        `
+
+        db.query(query, [id], function( err, results ) {
+            if ( err ) throw `Database Error! ${ err }`
+            
+            callback()
+        })
     }
 }

@@ -27,11 +27,6 @@ module.exports = {
     create ( req, res ) {
         return res.render('admin/createchefs')
     },
-    edit ( req, res ) {
-        Chef.find(req.params.id, function(chef){
-            return res.render('admin/chefedit', { chef })
-        })
-    },
     post ( req, res ) {
         const keys = Object.keys(req.body)
 
@@ -43,5 +38,28 @@ module.exports = {
         Chef.create(req.body, function(chef){
             return res.redirect(`/admin/chefs/${chef.id}`)
         })
+    },
+    edit ( req, res ) {
+        Chef.find(req.params.id, function(chef){
+            return res.render('admin/chefedit', { chef })
+        })
+    },
+    put ( req, res) {
+        const keys = Object.keys( req.body )
+        for ( key of keys ) {
+            if ( req.body[key] == "" )
+                return res.send ('Please, fill all fields')
+        }
+
+        Chef.update(req.body, function(){
+            return res.redirect(`chefs/${req.body.id}`)
+        })
+    },
+    delete ( req, res ) {
+        
+        Chef.delete(req.body.id, function() {
+            return res.redirect("chefs")
+        })
     }
+
 }

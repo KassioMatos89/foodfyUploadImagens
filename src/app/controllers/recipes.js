@@ -81,7 +81,7 @@ module.exports = {
             if (req.body[key] == "")
                 return res.send('Please, fill all fields')
         }
-
+        
         Recipe.update(req.body, function() {
             return res.redirect(`recipes/${req.body.id}`)
         })
