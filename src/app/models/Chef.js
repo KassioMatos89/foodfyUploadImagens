@@ -4,8 +4,11 @@ const { date } = require('../../lib/utils')
 module.exports = {
     all(callback) {
         db.query(`
-            SELECT *
+            SELECT chefs.*,
+            (SELECT count (*) FROM receipts WHERE receipts.chef_id = chefs.id) AS total_recipes
             FROM chefs
+            LEFT JOIN receipts ON (chefs.id = receipts.chef_id)
+            GROUP BY chefs.id
             ORDER BY name ASC`, function ( err, results ){
                 if ( err ) throw `Database Error! ${err}`
                 callback(results.rows)

@@ -9,6 +9,7 @@ routes.get("/", recipes.home)
 //RECIPES
 routes.get("/about", recipes.about)
 routes.get("/recipes", recipes.indexUsers)
+routes.get("/recipesfind", recipes.recipeFind)
 //CHEFS
 routes.get("/chefs", chefs.show)
 

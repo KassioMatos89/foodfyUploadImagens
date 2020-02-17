@@ -25,6 +25,12 @@ module.exports = {
             return res.render ("recipes", { recipes })
         })
     },
+    recipeFind ( req, res ) {
+        let { filter } = req.body
+        Recipe.findBy(filter, function(recipesFind){
+            return res.render("recipefind", { recipes: recipesFind, filter })
+        })
+    },
     // Admin Index - Render Admin index page
     index ( req, res ) {
         Recipe.all(function(recipes){
