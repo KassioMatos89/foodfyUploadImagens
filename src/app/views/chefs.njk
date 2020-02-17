@@ -1,12 +1,35 @@
 {% extends "layout.njk" %}
 
 {% block findForm %}
-    <form action="/chefs" method="get" id="btn_find_chefe">
-        <input 
-            type="text" 
-            name="filter" 
-            placeholder="Buscar Chefe"
-        >
-        <button type="submit">Buscar</button>
-    </form>
+                <form action="/recipes" method="get" id="btn_find_recipe">
+                    <input 
+                        type="text" 
+                        name="filter" 
+                        placeholder="Buscar chefe"
+                    >
+                    <button type="submit">Buscar</button>
+                </form>
+                {% endblock %}
+
+{% block content %}
+
+    <section class="avatar_cards">
+
+        {% for chef in chefs %}
+        <div class="avatar_card">
+            <div>
+                <section class="avatar_img"
+                    style="background: url({{ chef.avatar_url }}) no-repeat center top / cover">
+                </section>
+            </div>
+            <div class="chef_name">
+                <h3>{{ chef.name }}</h3>
+                <div class="total_recipes">
+                    <p>{{ qtd_recipes }} receitas</p>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+
+    </section>
 {% endblock %}
