@@ -40,7 +40,6 @@ module.exports = {
                     total: Math.ceil( recipes[0].total / limit ),
                     page
                 }
-
                 return res.render ("recipes", { recipes, pagination, filter })
             }
         }
@@ -51,6 +50,7 @@ module.exports = {
         //     return res.render ("recipes", { recipes })
         // })
     },
+    // Find recipe for users and admin page
     recipeFind ( req, res ) {
         const { filter } = req.query
 

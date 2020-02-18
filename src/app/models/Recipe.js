@@ -111,7 +111,7 @@ module.exports = {
             })
     },
     paginate(params) {
-        const { filter, limit, page, offset, callback } = params
+        const { filter, limit, offset, callback } = params
 
         let query = "",
             filterQuery = ""
