@@ -2,4 +2,20 @@
 
 {% block content %}
     <h1>Buscando por "{{ filter }}"</h1>
+
+    <section id="meal" class="cards">
+        {% for recipe in recipes %}
+        <div id="{{ recipe.id }}" class="card">
+            <div class="card__image-container">
+                <img src="{{ recipe.image }}" alt="{{ recipe.title }}">
+            </div>
+            <div class="card__title">
+                <p class="title">{{ recipe.title }}</p>
+            </div>
+            <div class="card__author">
+                <p class="author">por {{ recipe.chef_name }}</p>
+            </div>
+        </div>
+        {% endfor %}
+    </section>
 {% endblock %}

@@ -18,11 +18,12 @@
                     <a href="/chefs">Chefs</a>
                 </nav>
                 {% block findForm %}
-                <form action="/recipes" method="get" id="btn_find_recipe">
+                <form action="/recipefind" method="get" id="btn_find_recipe">
                     <input 
                         type="text" 
                         name="filter" 
                         placeholder="Buscar uma receita"
+                        value = {{ filter }}
                     >
                     <button type="submit">Buscar</button>
                 </form>
