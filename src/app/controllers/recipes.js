@@ -53,7 +53,7 @@ module.exports = {
     // Find recipe for users and admin page
     recipeFind ( req, res ) {
         const { filter } = req.query
-
+        // Teste 20/02/2020
         Recipe.findBy(filter, function(recipesFind){
             return res.render("recipefind", { recipes: recipesFind, filter })
         })
