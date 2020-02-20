@@ -26,8 +26,9 @@ module.exports = {
         })
     },
     recipeFind ( req, res ) {
-        let { filter } = req.body
+        let { filter } = req.query
         Recipe.findBy(filter, function(recipesFind){
+            console.log(recipesFind)
             return res.render("recipefind", { recipes: recipesFind, filter })
         })
     },
