@@ -63,9 +63,11 @@ function addIngredient(){
 
 }
 
-document
+if ( document.querySelector(".add-ingredient") ) {
+    document
     .querySelector(".add-ingredient")
     .addEventListener('click', addIngredient)
+}
 
 // Add fields preparation on create.njk
 function addPreparation(){
@@ -85,6 +87,8 @@ function addPreparation(){
 
 }
 
-document
-    .querySelector(".add-preparation")
-    .addEventListener('click', addPreparation)
+if (document.querySelector(".add-preparation") ) {
+    document
+        .querySelector(".add-preparation")
+        .addEventListener('click', addPreparation)
+}
