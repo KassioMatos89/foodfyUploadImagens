@@ -137,7 +137,7 @@ for ( let page of pages ) {
     if( String(page).includes("...")) {
         elements += `<span>${page}</span>`    
     } else {
-        elements += `<a href="#">${page}</a>`
+        elements += `<a href="?page=${page}">${page}</a>`
     }
 }
 

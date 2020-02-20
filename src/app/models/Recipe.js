@@ -115,15 +115,23 @@ module.exports = {
 
         let query = "",
             filterQuery = ""
+            totalQuery = `(
+                SELECT count(*) FROM receipts
+            ) AS total`
     
         if ( filter ) {
             filterQuery = `
                 WHERE receipts.title ILIKE '%${filter}%'
             `
+
+            totalQuery = `(
+                SELECT count(*) FROM receipts
+                ${filterQuery}
+            ) AS total`
         }
 
         query = `
-            SELECT receipts.*, chefs.name AS chef_name
+            SELECT receipts.*, ${totalQuery}, chefs.name AS chef_name
             FROM receipts
             LEFT JOIN chefs ON (receipts.chef_id = chefs.id)
             ${filterQuery}
