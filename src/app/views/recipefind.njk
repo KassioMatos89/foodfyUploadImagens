@@ -1,7 +1,7 @@
 {% extends "layout.njk" %}
 
 {% block content %}
-    <h1>Buscando por "{{ filter }}"</h1>
+    <h1 class="recipe_find_title">Buscando por "{{ filter }}"</h1>
 
     <section id="meal" class="cards">
         {% for recipe in recipes %}

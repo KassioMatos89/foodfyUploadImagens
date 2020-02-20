@@ -192,6 +192,12 @@ h1.recipes-title {
     color: var(--color-author);
 }
 
+/* === CARDS FIND === */
+
+.recipe_find_title {
+    margin-bottom: 20px;
+}
+
 /* === FOOTER === */
 
 footer {
