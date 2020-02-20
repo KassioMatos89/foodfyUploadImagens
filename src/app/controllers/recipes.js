@@ -21,7 +21,7 @@ module.exports = {
     },
     // Index users - Render index user page
     indexUsers ( req, res ) {
-
+        //teste
         let { filter, page, limit } = req.query
 
         page = page || 1
