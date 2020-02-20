@@ -63,7 +63,11 @@ function addIngredient(){
 
 }
 
+<<<<<<< HEAD
 if (document.querySelector(".add-ingredient")) {
+=======
+if ( document.querySelector(".add-ingredient") ) {
+>>>>>>> finalBranch
     document
     .querySelector(".add-ingredient")
     .addEventListener('click', addIngredient)
@@ -87,6 +91,7 @@ function addPreparation(){
 
 }
 
+<<<<<<< HEAD
 if(document.querySelector(".add-preparation")){
     document
     .querySelector(".add-preparation")
@@ -142,3 +147,10 @@ for ( let page of pages ) {
 }
 
 pagination.innerHTML = elements
+=======
+if (document.querySelector(".add-preparation") ) {
+    document
+        .querySelector(".add-preparation")
+        .addEventListener('click', addPreparation)
+}
+>>>>>>> finalBranch
