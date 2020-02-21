@@ -25,7 +25,7 @@ module.exports = {
         let { filter, page, limit } = req.query
 
         page = page || 1
-        limit = limit || 2
+        limit = limit || 6
 
         let offset = limit * (page - 1)
 
@@ -43,19 +43,31 @@ module.exports = {
                 return res.render ("recipes", { recipes, pagination, filter })
             }
         }
-
         Recipe.paginate(params)
-
-        // Recipe.all(function(recipes){
-        //     return res.render ("recipes", { recipes })
-        // })
     },
     // Find recipe for users and admin page
     recipeFind ( req, res ) {
-        const { filter } = req.query
-        Recipe.findBy(filter, function(recipesFind){
-            return res.render("recipefind", { recipes: recipesFind, filter })
-        })
+        let { filter, page, limit } = req.query
+
+        page = page || 1
+        limit = limit || 3
+
+        let offset = limit * (page - 1)
+
+        const params = {
+            filter,
+            page,
+            limit,
+            offset,
+            callback(recipes){
+                const pagination = {
+                    total: Math.ceil ( recipes[0].total / limit ),
+                    page
+                }
+                return res.render ("recipefind", { recipes, pagination, filter })
+            }
+        }
+        Recipe.paginate(params)
     },
     // Admin Index - Render Admin index page
     index ( req, res ) {
