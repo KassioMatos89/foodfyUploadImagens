@@ -156,3 +156,22 @@ if ( pagination ) {
     createPagination(pagination)
 }
 
+const delete_validation = document.querySelector(".delete_validation")
+const btn_delete_chef = document.querySelector(".btn_delete")
+console.log(btn_delete_chef)
+/*
+if(btn_delete_chef) {
+    btn_delete_chef.addEventListener('click', function(){
+        alert('Teste')
+    })
+}
+
+
+
+btn_delete_chef.addEventListener('click', function(){
+    if ( delete_validation.value = 0 ) {
+        console.log(delete_validation.value)
+        alert('Teste')
+    }
+})
+*/

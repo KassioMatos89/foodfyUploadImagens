@@ -56,9 +56,20 @@ module.exports = {
         })
     },
     delete ( req, res ) {
-        
-        Chef.delete(req.body.id, function() {
-            return res.redirect("chefs")
+
+        Chef.find(req.body.id, function(chef, chef_recipes){
+
+            const qtd_recipes = chef.total_recipes
+
+            if ( qtd_recipes > 0 ) {
+                return res.send('Chefs que possuem receitas não podem ser deletados')
+            } else {
+                Chef.delete(req.body.id, function() {
+                    return res.redirect("chefs")
+                })
+            }
+
         })
+        
     }
 }
