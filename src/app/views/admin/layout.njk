@@ -1,34 +1,18 @@
-<!DOCTYPE html>
 <html>
     <head>
-        <meta charset="UTF-8">
-        <title>FoodFy</title>
-        <link rel="stylesheet" href="/adminstyles.css">
+        {% block head %}
+            <title>FoodFy</title>
+        {% endblock %}
+
+        <link rel="stylesheet" href="/styles.css">
     </head>
     <body>
+        
+        {% include "admin/parts/header.njk" %}
 
-        <div class="header">
-            <header class="header_containter">
-                <a href="/admin/recipes">
-                    <div class="logo"></div>
-                </a>
-                
-                <nav class="menu">
-                    <a href="/admin/recipes">RECEITAS</a>
-                    <a href="/admin/chefs">CHEFS</a>
-                </nav>
-            </header>
-        </div>
+        {% block content %} {% endblock %}
 
-        <div class="container">
+        {% include "admin/parts/footer.njk" %}
 
-            {% block content %}
-            {% endblock %}
-            
-        </div>
-        <footer>
-            <p>Todos os direitos reservados, receitas Foodfy.</p>
-        </footer>
-        <script src="/script.js"></script>
     </body>
 </html>
