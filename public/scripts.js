@@ -1,177 +1,236 @@
-// Lógica para menu ativo
-const currentPage = location.pathname
-const menuItems = document.querySelectorAll(".header a")
+const PhotosUpload = {
+    input: "",
+    preview_profile: document.querySelector('#photo-profile-preview'),
+    preview_recipe: document.querySelector('#photos-recipe-preview'),
+    profileUploadLimit: 1,
+    recipeUploadLimit: 5,
+    files: [],
+    handleFileInput(event) {
+        const { files: fileList } = event.target
+        PhotosUpload.input = event.target
 
-for( item of menuItems ) {
-    if( currentPage.includes(item.getAttribute("href")) ) {
-        item.classList.add("activeMenu")
-    }
-}
+        if (PhotosUpload.hasLimit(event)) return
 
-// Lógica para lista de receitas, quando uma for clicada, será direcionado para o front de detalhes da receita (recipes.njk)
-const cards = document.querySelectorAll('.view-recipe')
+        Array.from(fileList).forEach(file => {
 
-for(let card of cards){
-    card.addEventListener('click', function(){
-        const recipeId = card.getAttribute('id')
-        window.location.href = `/admin/recipes/${recipeId}`
-    })
-}
+            PhotosUpload.files.push(file)
 
-// Lógica para esconder/mostrar os detalhes da receita
+            const reader = new FileReader()
 
-const buttons = document.querySelectorAll('h4')
-const contents = document.querySelectorAll('.topic-content')
+            reader.onload = () => {
+                const image = new Image()
+                image.src = String(reader.result)
 
-var i = 0
+                const div = PhotosUpload.getContainer(image)
 
-for(let button of buttons){    
-    
-    const content = contents[i]
-    button.addEventListener('click', function(){    
+                PhotosUpload.preview_profile.appendChild(div)
+            }
 
-        if (button.innerHTML === 'ESCONDER'){
-            button.innerHTML = 'MOSTRAR'
-            content.classList.remove('show')
-            content.classList.add('hide')
-            
-        } else {
-            button.innerHTML = 'ESCONDER'
-            content.classList.remove('hide')
-            content.classList.add('show')
-            
+            reader.readAsDataURL(file)
+        })
+
+        PhotosUpload.input.files = PhotosUpload.getAllFiles()
+    },
+    handleFileInputRecipe(event) {
+        const { files: fileList } = event.target
+        PhotosUpload.input = event.target
+
+        if (PhotosUpload.hasLimit(event)) return
+
+        Array.from(fileList).forEach(file => {
+
+            PhotosUpload.files.push(file)
+
+            const reader = new FileReader()
+
+            reader.onload = () => {
+                const image = new Image()
+                image.src = String(reader.result)
+
+                const div = PhotosUpload.getContainer(image)
+
+                PhotosUpload.preview_recipe.appendChild(div)
+            }
+
+            reader.readAsDataURL(file)
+        })
+
+        PhotosUpload.input.files = PhotosUpload.getAllFiles()
+    },
+    hasLimit(event) {
+        const { profileUploadLimit, recipeUploadLimit, input, preview_profile, preview_recipe } = PhotosUpload
+        const { files: fileList } = input
+
+        if (preview_profile) {
+
+            if (fileList.length > profileUploadLimit ) {
+                alert(`Envie no máximo ${profileUploadLimit} fotos`)
+                event.preventDefault()
+                return true
+            }
+
+            const photosDiv = []
+            preview_profile.childNodes.forEach(item => {
+                if (item.classList && item.classList.value == "photo")
+                    photosDiv.push(item)
+            })
+
+            const totalPhotos = fileList.length + photosDiv.length
+            if ( totalPhotos > profileUploadLimit) {
+                alert("Você atingiu o limite máximo de fotos")
+                event.preventDefault()
+                return true
+            }
         }
-    })
-    i += 1
-}
 
-// Add fields ingredients on create.njk
-function addIngredient(){
-    
-    const ingredients = document.querySelector("#ingredients")
-    const fieldContainer = document.querySelectorAll(".ingredient")
+        if (preview_recipe) {
 
-    //Realiza um clone do último ingrediente adicionado.
-    const newField = fieldContainer[fieldContainer.length - 1].cloneNode( true )
+            if (fileList.length > recipeUploadLimit) {
+                alert(`Envie no máximo ${recipeUploadLimit} fotos`)
+                alert.preventDefault()
+                return true
+            }
 
-    //Não adiciona um input se o ultimo tem um valor vazio.
-    if(newField.children[0].value == "") return false
+            const photosDiv = []
+            preview_recipe.childNodes.forEach(item => {
+                if (item.classList && item.classList.value == "photo")
+                    photosDiv.push(item)
+            })
 
-    //Deixa o valor do imput vazio
-    newField.children[0].value = ""
-    ingredients.appendChild(newField)
+            const totalPhotos = fileList.length + photosDiv.length
+            if ( totalPhotos > recipeUploadLimit) {
+                alert("Você atingiu o limite máximo de fotos")
+                event.preventDefault()
+                return true
+            }
 
-}
+        }
 
-if (document.querySelector(".add-ingredient")) {
-    document
-    .querySelector(".add-ingredient")
-    .addEventListener('click', addIngredient)
-}
+        return false
+    },
+    getAllFiles() {
+        const dataTransfer = new ClipboardEvent("").clipboardData || new DataTransfer()
+        PhotosUpload.files.forEach(file => dataTransfer.items.add(file))
 
-// Add fields preparation on create.njk
-function addPreparation(){
+        return dataTransfer.files
+    },
+    getContainer(image) {
+        const div = document.createElement('div')
+        div.classList.add('photo')
 
-    const preparation_itens = document.querySelector("#preparation-itens")
-    const fieldContainer = document.querySelectorAll(".preparation")
+        div.onclick = PhotosUpload.removePhoto
 
-    //Realiza um clone do último ingrediente adicionado.
-    const newField = fieldContainer[fieldContainer.length - 1].cloneNode( true )
+        div.appendChild(image)
 
-    //Não adiciona um input se o ultimo tem um valor vazio.
-    if(newField.children[0].value == "") return false
+        div.appendChild(PhotosUpload.getRemoveButton())
 
-    //Deixa o valor do imput vazio
-    newField.children[0].value = ""
-    preparation_itens.appendChild(newField)
-
-}
-
-if(document.querySelector(".add-preparation")){
-    document
-    .querySelector(".add-preparation")
-    .addEventListener('click', addPreparation)
-}
-
-//Paginate
-
-function paginate(selectedPage, totalPages) {
-    let  pages = [],
-         oldPage
-
-    for ( let currentPage = 1; currentPage <= totalPages; currentPage++ ) {
+        return div
+    },
+    getRemoveButton() {
+        const button = document.createElement('i')
+        button.classList.add('material-icons')
+        button.innerHTML = "delete"
+        return button
+    },
+    removePhoto(event) {
+        const photoDiv = event.target.parentNode
         
-        const firstAndLastPage = currentPage == 1 || currentPage == totalPages
-        const pagesAfterSelectedPage = currentPage <= selectedPage + 2
-        const pagesBeforeSelectedPage = currentPage >= selectedPage - 2
+        if (PhotosUpload.preview_profile) {
+            const photosArray = Array.from(PhotosUpload.preview_profile.children)
 
-        if ( firstAndLastPage || pagesBeforeSelectedPage && pagesAfterSelectedPage ) {
-            
-            if ( oldPage && currentPage - oldPage > 2 ) {
-                pages.push("...")
-            }
+            const index = photosArray.indexOf(photoDiv)
 
-            if ( oldPage && currentPage - oldPage == 2 ) {
-                pages.push(oldPage + 1)
-            }
+            PhotosUpload.files.splice(index, 1)
+            PhotosUpload.input.files = PhotosUpload.getAllFiles()
 
-            pages.push(currentPage)
-
-            oldPage = currentPage
-            
+            photoDiv.remove()
         }
-    }
-    
-    return pages
-}
 
-function createPagination(pagination) {
-    
-    const page = +pagination.dataset.page
-    const total = +pagination.dataset.total
-    const filter = pagination.dataset.filter
+        if (PhotosUpload.preview_recipe) {
+            const photosArray = Array.from(PhotosUpload.preview_recipe.children)
 
-    const pages = paginate(page, total)
+            const index = photosArray.indexOf(photoDiv)
 
-    let elements = ""
+            PhotosUpload.files.splice(index, 1)
+            PhotosUpload.input.files = PhotosUpload.getAllFiles()
 
-    for ( let page of pages ) {
-        if( String(page).includes("...")) {
-            elements += `<span>${page}</span>`    
-        } else {
-            if ( filter ) {
-                elements += `<a href="?page=${page}&filter=${filter}">${page}</a>`
-            } else {
-                elements += `<a href="?page=${page}">${page}</a>`
+            photoDiv.remove()
+        }
+        
+    },
+    removeOldPhotos(event) {
+        const photoDiv = event.target.parentNode
+
+        if (photoDiv.id) {
+            const removedFiles = document.querySelector('input[name="removed_files"]')
+            if (removedFiles) {
+                removedFiles.value += `${photoDiv.id},`
             }
         }
+
+        photoDiv.remove()
     }
-
-    pagination.innerHTML = elements
 }
 
-const pagination = document.querySelector(".pagination")
+const AddItems = {
+    addIngredient(event) {
 
-if ( pagination ) {
-    createPagination(pagination)
-}
+        const ingredients = document.querySelector('#ingredients')
+        const fieldContainer = document.querySelectorAll('.ingredient')
 
-const delete_validation = document.querySelector(".delete_validation")
-const btn_delete_chef = document.querySelector(".btn_delete")
-console.log(btn_delete_chef)
-/*
-if(btn_delete_chef) {
-    btn_delete_chef.addEventListener('click', function(){
-        alert('Teste')
-    })
-}
+        const newField = fieldContainer[fieldContainer.length -1].cloneNode( true )
 
+        if(newField.children[0].value == "") return false
 
+        newField.children[0].value = ""
+        ingredients.appendChild(newField)
 
-btn_delete_chef.addEventListener('click', function(){
-    if ( delete_validation.value = 0 ) {
-        console.log(delete_validation.value)
-        alert('Teste')
+    },
+    addPreparation(event) {
+
+        const preparations = document.querySelector('#preparations')
+        const fieldContainer = document.querySelectorAll('.preparation')
+
+        const newField = fieldContainer[fieldContainer.length -1].cloneNode( true )
+
+        if(newField.children[0].value == "") return false
+
+        newField.children[0].value = ""
+        preparations.appendChild(newField)
+
     }
-})
-*/
+}
+
+const ImageGallery = {
+
+    hightlight: document.querySelector('.gallery .highlight > img'),
+    previews: document.querySelectorAll('.gallery-preview img'),
+    setImage(e) {
+        const { target } = e
+
+        ImageGallery.previews.forEach(preview => preview.classList.remove('active'))
+        
+        target.classList.add('active')
+
+        ImageGallery.hightlight.src = target.src
+        Lightbox.image.src = target.src
+    }
+}
+
+const Lightbox = {
+    target: document.querySelector('.lightbox-target'),
+    image: document.querySelector('.lightbox-target img'),
+    closeButton: document.querySelector('.lightbox-target a.lightbox-close'),
+    open() {
+        Lightbox.target.style.opacity = 1
+        Lightbox.target.style.top = 0
+        Lightbox.target.style.bottom = 0
+        Lightbox.closeButton.style.top = 0
+    },
+    close() {
+        Lightbox.target.style.opacity = 0
+        Lightbox.target.style.top = "-100%"
+        Lightbox.target.style.bottom = "initial"
+        Lightbox.closeButton.style.top = "-80px"
+    }
+}

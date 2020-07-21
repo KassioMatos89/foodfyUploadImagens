@@ -3,19 +3,19 @@
 {% block content %}
 
     <section class="container form">
-        <form method="POST" action="/recipes" enctype="multipart/form-data">
-        
+        <form method="POST" action="/chefs" enctype="multipart/form-data">
+
             <div class="header">
-                <h1>Criando receita</h1>
+                <h1>Criando chef</h1>
                 <div class="actions">
-                    <button type="submit" class="button save">Salvar Receita</button>
+                    <button class="button save" type="submit">Salvar chef</button>
                 </div>
             </div>
 
             <div class="fields">
-                {% include "recipes/fields.njk" %}
+                {% include "chefs/fields.njk" %}
             </div>
-        
+
         </form>
     </section>
 
