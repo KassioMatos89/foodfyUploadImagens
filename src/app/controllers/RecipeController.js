@@ -145,7 +145,7 @@ module.exports = {
 
         await Recipe.delete(req.body.id)
 
-        return res.send('Recipe deleted suceffuly')
+        return res.redirect('/recipes')
 
     }
 }

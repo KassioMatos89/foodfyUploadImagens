@@ -18,7 +18,13 @@ module.exports = {
         return db.query(query, values)
     },
     find(id) {
-        return db.query('SELECT * FROM chefs WHERE id = $1', [id])
+        return db.query(`
+            SELECT chefs.*,
+                    files.path as path
+            FROM chefs 
+            LEFT JOIN files ON (chefs.file_id = files.id)
+            WHERE chefs.id = $1
+        `, [id])
     },
     file(id) {
         return db.query('SELECT * FROM files WHERE id = $1', [id])
